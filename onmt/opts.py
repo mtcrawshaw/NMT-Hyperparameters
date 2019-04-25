@@ -310,7 +310,7 @@ def train_opts(parser):
 
     group.add('--save_model', '-save_model', default='model',
               help="Model filename (the model will be saved as "
-                   "<save_model>_N.pt where N is the number "
+                   "<save_model>.pt where N is the number "
                    "of steps")
 
     group.add('--save_checkpoint_steps', '-save_checkpoint_steps',

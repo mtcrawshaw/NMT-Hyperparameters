@@ -15,10 +15,7 @@ def initializePopulation(populationSize, params):
 
     return population
 
-def trainMember(i, member, trainingSteps):
-    return random.random(), random.random(), random.random(), random.random()
-
-def getSurvivors(losses, population, populationSize, numWinners, numLucky):
+def getSurvivorIndices(losses, populationSize, numWinners, numLucky):
 
     # Sort members by loss
     losses = sorted(losses, key = lambda lossTuple : lossTuple[1])
@@ -30,9 +27,8 @@ def getSurvivors(losses, population, populationSize, numWinners, numLucky):
 
         if candidateSurvivorIndex not in survivorIndices:
             survivorIndices.append(candidateSurvivorIndex)
-    survivors = [population[i] for i in survivorIndices]
 
-    return survivors
+    return survivorIndices
 
 def getChild(survivor, params):
     child = {}

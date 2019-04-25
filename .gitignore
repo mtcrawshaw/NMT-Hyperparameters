@@ -110,3 +110,6 @@ ENV/
 
 # Tensorboard
 runs/
+
+# Misc
+hp_optimization/models/genetic_*
