@@ -18,7 +18,7 @@ from train import trainMember, copyModels
 POPULATION_SIZE = 6
 NUM_WINNERS = 2 # These are the number of top members which are chosen for next generation
 NUM_LUCKY = 1 # These are the number of members which are chosen for next generation randomly
-NUM_GENERATIONS = 8
+NUM_GENERATIONS = 6
 
 LOG_PATH = './log.json'
 
