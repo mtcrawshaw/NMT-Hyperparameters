@@ -15,13 +15,14 @@ def initializePopulation(populationSize, params):
 
     return population
 
-def getSurvivorIndices(losses, populationSize, numWinners, numLucky):
+def getSurvivorIndices(accuracies, populationSize, numWinners, numLucky):
 
     # Sort members by loss
-    losses = sorted(losses, key = lambda lossTuple : lossTuple[1])
+    accuracies = sorted(accuracies, key = lambda lossTuple : lossTuple[1], 
+            reverse = True)
     
     # Choose survivors, first winners, then randomly
-    survivorIndices = [lossTuple[0] for lossTuple in losses[:numWinners]]
+    survivorIndices = [lossTuple[0] for lossTuple in accuracies[:numWinners]]
     while len(survivorIndices) < (numWinners + numLucky):
         candidateSurvivorIndex = random.randint(0, populationSize - 1)
 

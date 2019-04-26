@@ -113,3 +113,4 @@ runs/
 
 # Misc
 hp_optimization/models/genetic_*
+hp_optimization/log.json
