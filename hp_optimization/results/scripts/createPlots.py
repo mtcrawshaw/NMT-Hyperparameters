@@ -10,6 +10,12 @@ GENETIC_PATH = '../logs/geneticResults.json'
 REGULAR_PATH = '../logs/regularResults.json'
 PARAM_NAMES = ['dropout', 'learning_rate', 'adam_beta1', 'adam_beta2',
         'label_smoothing']
+formattedParamNames = {}
+formattedParamNames['dropout'] = 'Dropout'
+formattedParamNames['learning_rate'] = 'Learning Rate'
+formattedParamNames['adam_beta1'] = 'Adam Beta1'
+formattedParamNames['adam_beta2'] = 'Adam Beta2'
+formattedParamNames['label_smoothing'] = 'Label Smoothing'
 
 GENETIC_STEP_SIZE = 400
 REGULAR_STEP_SIZE = 144
@@ -44,6 +50,7 @@ def createAccuracyPlot(geneticResults, regularResults, training=True):
     plt.plot(geneticX, geneticY)
     plt.plot(regularX, regularY)
     plt.legend(['genetic', 'baseline'])
+    plt.title('%s Accuracy vs. Training Steps' % ('Training' if training else 'Validation') )
 
     plotName = 'genetic'
     plotName += 'Training' if training else 'Validation'
@@ -72,6 +79,7 @@ def createParamPlot(geneticResults, paramName):
     y = np.array(parameterValues)
 
     plt.plot(x, y)
+    plt.title('%s vs. Training Steps' % formattedParamNames[paramName])
     plt.savefig(os.path.join(PLOTS_DIR, 'genetic_%s.png' % paramName))
 
     # Clear plot
